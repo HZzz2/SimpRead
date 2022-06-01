@@ -1,0 +1,95 @@
+> 本文由 [简悦 SimpRead](http://ksria.com/simpread/) 转码， 原文地址 [medium.com](https://medium.com/@dprice_theblogger/my-first-year-as-a-pentester-241f0eb52c73)
+
+> 测试，测试，1、2、3！
+
+测试，测试，1、2、3！
+
+![](https://miro.medium.com/max/1400/0*cwWYvZurkHfVQoPs)
+
+**嗨读者。我的名字是 Devin Price，我是一名网络安全专业人士。**在我职业生涯的这个阶段，我有幸在网络安全领域工作了四年多。
+
+截至发文之日，我正在庆祝 1 年成为一名专业且经过认证的渗透测试员 (pentester)。为了纪念我职业生涯中的这一刻，我想分享我对去年作为移动应用渗透测试者的看法. 如果您对以下任何主题感兴趣，请继续阅读。
+
+*   _什么是渗透测试？_
+*   _这个职位适合我吗？_
+*   _我的渗透测试之旅_
+*   _我作为专业渗透测试者的第一年_
+*   _如何成为渗透测试者_
+
+在我开始我作为一名渗透测试人员的经历之前，让我们先定义一下什么是渗透测试，这样在我们将一起踏上的旅程中就不会有人离开了。在定义术语时，我更喜欢向专家寻求帮助。**根据 Chapple & Seidl 的说法，“渗透测试是经过授权的，是通过合法尝试来破坏组织的安全控制并执行未经授权的活动”（Chapple & Seidl，2022 年，第 2 页）。**组织要求进行渗透测试，以确定其安全系统的强度与攻击者绕过这些安全控制的难易程度之间的差距。迈克泰森的名言是 “每个人都有一个计划，直到他们被打到嘴里”。这种思路对于组织来说也是一样的。
+
+您可能认为您的组织的关键数据和资产不会受到内部或外部攻击，但除​​非您将该理论或信念付诸实践，否则您永远无法确定. 您可以了解您的数据在真实攻击者的真实攻击中的安全性，如果您的理论错误，这可能会将您放在新闻的头版，或者您可以合法地允许道德黑客团队或专业渗透测试者私下模拟真实的攻击，您可以从中学习和成长。大多数有选择权的组织几乎都会普遍选择后一种选择。简而言之，这就是渗透测试。
+
+根据我一年的经验，如果您满足以下条件，您会喜欢成为一名渗透测试员：
+
+1.  享受弄清楚系统是如何工作的，这样您就可以尝试利用系统本身的漏洞。**一个 “破坏者” 或有敌对心态或方法的人会非常喜欢这种类型的工作。当你所有的朋友或家人都以一种方式看待某个过程时，你是不是那个想办法利用系统盲点的 “怪人”？如果是这样，这对你来说可能是一个伟大的职业。**
+2.  **喜欢细节或具有分析 / 好奇的个性。**我注意到的是最好的渗透测试者是那些关注大多数人错过的方面或提出大多数人不会考虑的问题的人. 作为渗透测试者，你最强大的工具是你的头脑，问 “为什么” 会引导你到达自动化工具很少能做到的地方。
+
+在我看来，大多数网络安全事件的根本原因归结为有人说 “我不认为攻击者会那样做” 或“我从没想过有人会让 X 系统做出那样的反应”。让可以帮助组织在报告真实攻击之前考虑这些情况的人员是一项备受追捧的技能。
+
+综上所述，如果我告诉你关于这个职业领域的所有伟大的事情，并且至少不承认一些外部人士不会知道或意识到的更令人不快的因素，我会带领你继续前进。**归根结底，没有完美的工作。**
+
+1.  根据我的经验，渗透测试有时可能是重复的。当您为不同的组织执行渗透测试时，您将在测试期间每次都运行某些方法。如果您的内心深处是一个有创造力、有远见或创新者，那么这可能不是最适合您的。
+2.  作为一名渗透测试员，在很大程度上是一个不面向人的角色。大多数时候，你会一个人，一个人，做你的工作。有些人读到这句话会很激动，而另一些人可能会有点幻想破灭。作为一个人，在进入这个领域之前，你只需要注意你是哪种类型的人。
+3.  由于该职位的苛刻性质、执行该角色所需的高度关注以及不断变化的威胁环境，如果处理和管理不当，作为一名渗透测试员可能会成为一个消耗一切的固定目标。这导致渗透测试领域以及整个网络安全领域的一些人处理诸如倦怠、压力、心理健康和工作与生活不平衡等问题。
+
+再说一次，这是一个伟大的职业，但没有一个职业是完美的，睁大眼睛开始任何新的生活总是最好的。
+
+要全面了解我是如何进入网络安全领域并最终进入渗透测试的，请查看我之前的博客文章 “[我](https://medium.com/@dprice_theblogger/how-i-got-into-cybersecurity-how-you-can-too-17728a539e77)是如何进入网络安全领域的以及你是如何做到的”。对于缩短版，**我并不是刚从大学毕业就成为一名渗透测试员。随着时间的推移，我努力做到了。**在六年的时间里，我开始在 IT 领域担任三年的系统分析师，然后进入网络安全领域，然后又担任了三年的安全工程师。直到我从事专业工作的第六年开始，我才过渡到渗透测试。现在，我确信该领域的其他渗透测试者能够更快地到达我所在的位置，但我只能谈谈我的经历。
+
+在 NowSecure 担任移动应用程序渗透[测试员之前](https://www.nowsecure.com/)，我只处理过 Web 应用程序安全性。我来到现在的雇主的部分原因是他们会提供在移动安全领域学习和发展的机会。**对于那些可能和我一年前想法相同的人来说，Web 应用程序的渗透测试与移动端的渗透测试不同。**这是因为 Web 应用程序和移动应用程序的功能不同。
+
+对于大多数 Web 应用程序，前端中的几乎所有源代码（普通用户在访问网页时可以看到的内容）都隐藏在组织的防火墙或内部网络之后（OWASP Foundation，2022）。然而，对于移动应用程序，情况往往正好相反。通常对于移动应用程序，一旦下载应用程序，大量源代码就会存储在实际的移动设备上，这使得攻击者可以搜索他们可以利用的潜在安全错误配置或已知漏洞（Swaltz，2020）。许多未受过这种差异教育的公司会尝试使用与用于移动应用程序的 Web 应用程序渗透测试相同的策略，这不是我个人推荐的。随着时间的推移，更多的人将通过移动设备和应用程序连接到互联网，而不是通过网络应用程序。移动应用程序安全应该是任何组织整体安全战略的重要组成部分，并且在未来只会继续变得越来越重要。
+
+当我去年开始担任移动应用渗透测试员时，我对此一无所知。我以前从未做过渗透测试，当然也从未为付费客户写过报告。**为了帮助弥合我对渗透测试一无所知的差距，我首先专注于学习在渗透测试期间应该发生的事情的完整过程。**通过经验，我了解到渗透测试参与过程包括六个关键步骤或阶段。
+
+1.  _规划_
+2.  _调查结果验证_
+3.  _调查结果开发_
+4.  _报告_
+5.  _沟通_
+6.  _重新测试_
+
+在渗透测试的规划阶段，我们安排了与客户的初始 “启动” 会议，我们将了解他们想要什么类型的渗透测试，他们想要什么时候完成，他们希望我们测试移动应用程序的哪些方面，更重要的是，他们不希望我们测试哪些方面。我们还将确保客户了解最终渗透测试报告中将包含哪些信息，并在必要时根据他们的要求添加或删除某些报告部分。早些时候，我参加了几次启动会议，并开始将 NowSecure 其他渗透测试者使用的白话和行话内化。
+
+在结果验证阶段，我了解到这是渗透测试人员使用各种专有（[NowSecure 工作站](https://www.nowsecure.com/products/nowsecure-workstation/)和 [NowSecure 平台](https://www.nowsecure.com/products/nowsecure-platform/)）工具来检测和确认移动应用程序的任何潜在已知漏洞的地方。当我不积极进行报告时，我会确保使用这些工具，以便在测试期开始后掌握自己的方向并做好准备。
+
+在结果开发阶段，我了解到我们应该利用各种专有和非专有工具（[Jadx](https://github.com/skylot/jadx)、[Hopper](https://www.hopperapp.com/)、[ADB](https://developer.android.com/studio/command-line/adb)、[Frida](https://frida.re/)、[r2Frida](https://github.com/nowsecure/r2frida)、[Burpsuite](https://portswigger.net/burp) / [mitmproxy](https://mitmproxy.org/)、[Postman](https://www.postman.com/) 等）来查看我们是否可以利用或绕过移动应用程序中允许泄露、更改或拒绝访问敏感数据的任何安全控制。一年后，我仍在努力在这个阶段变得更好。任何告诉你他们知道如何在一年后完美使用所有这些工具的人都是在骗你。您可以在 NowSecure 的文章 “[_流行的移动应用安全测试工具_](https://www.nowsecure.com/blog/2022/04/13/popular-mobile-app-security-testing-tools/?utm_source=linkedin&utm_medium=social)”.
+
+在报告阶段，我了解到我们需要将迄今为止的所有调查结果证据输入到 NowSecure 的内部报告生成器中（无法透露名称，因为它不是公开可访问的信息，抱歉）以帮助创建用于不同类型的渗透评估的快速、简单的报告模板。在做了一年的渗透测试报告之后，我可以自信地说这个报告生成器是一个救生员！一旦我们收集了所有的发现证据，这使得为每个渗透测试评估创建报告相对较快。一份完整的报告通常包含一些部分，例如执行摘要、方法论（我用来测试特定移动应用程序的具体方法）、结果摘要、测试期间确认的每个结果的详细信息以及结果建议。
+
+在沟通阶段，我了解到这是我们向客户展示和传达书面报告结果的地方。我们称这些为 “宣读电话”，因为我们正在向客户口头宣读报告，并确保他们理解我们的解释。在电话会议期间，我们将专门确定测试期间发现的结果，并推荐加强移动应用程序安全态势的方法。有时，在听到对发现和建议的解释后，客户可能会选择采取纠正措施。其他时候，他们不会对调查结果采取任何行动，因为解决问题会对移动应用程序的运行方式产生不利影响。早些时候，我学会了当这种情况发生时不要过于情绪化。在一天结束时，渗透测试员的工作是展示风险并向客户提供降低这些风险的建议。在那之后客户决定的是他们的特权。
+
+在渗透测试过程的重新测试阶段，选择实施报告中建议的客户会将这些项目合并到他们的移动应用程序中。修复这些项目后，客户可能会再次与我们联系，以验证他们在报告中选择修复的项目是否在移动应用程序的最新更新中真正修复。最终，我们希望帮助客户确保他们的移动应用程序比他们第一次来找我们时更安全。简而言之，这就是我在过去一年中学到的渗透测试过程。
+
+除了学习渗透测试过程之外，查看我的渗透测试队友以前的渗透测试报告帮助我理解并开始看到似乎出现在许多报告中的共同发现和写作方式。某些发现，例如设备存储中的硬编码密钥或弱密码术，在许多移动应用程序中往往很常见，因此我学会了在开始测试时立即开始寻找这些发现。如果您有兴趣了解有关我和其他 NowSecure 分析师遇到的常见移动应用程序漏洞的更多信息，请随时[查看 NowSecure Academy 中的 “常见移动应用漏洞” 课程](https://www.linkedin.com/feed/update/urn:li:activity:6872313953708507136/).
+
+去年帮助我成长为一名渗透测试人员的另一个因素是能够实时观察团队中的其他渗透测试人员执行他们的测试。阅读报告是好的，但学习本质上是静态的。实时观看别人的渗透测试过程是动态的，可以让你学到很多东西，至少对我来说是这样。如果没有团队中的其他分析师带领我向我展示他们所学到的东西，我将无法通过我的第一次渗透测试。当我进入 NowSecure 时，[Tony Ramirez 是我的第一个渗透测试导师。](https://www.linkedin.com/in/anthonyrramirez?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAAsDrdgBlHBzQweci7PFdljmcIIZJIUcGJY&lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3ByAlzJEWgQKuuLKYIlHpkCg%3D%3D)他是一位出色的老师，知道如何以简单的方式解释过程和发现。[豪尔赫 · 达米安](https://www.linkedin.com/in/jorge-dami%C3%A1n-e-835ab4111/)是我第一年的第二个渗透导师。每当我不确定如何在我的测试中确认或利用某个发现时，我都会去找 Jorge，他总是让我直截了当。[Jill Wijaya](https://www.linkedin.com/in/jill-w-b09213115/) 是我在团队中的第三位渗透导师。在我的第一年，Jill 帮助我处理了许多在渗透性评估期间我不确定如何进行的情况。
+
+正如我最初在工作时间学到的一样，我也想靠自己变得更好。所以在我第一年的早期，我就开始寻找可以帮助我学习如何成为更好的渗透测试者的课程。在加入 NowSecure 前不久，我曾尝试通过参加 HackTheBox 上的 [Capture-The-Flag (CTF) 活动来学习渗透测试技能，但这对我来说是一个史诗般的失败](https://www.linkedin.com/posts/pricedevin_capturetheflag-hacker-activity-6776548367347539968-Qntz)。我没有捕获一个标志。所以一旦我加入了 NowSecure，我就从之前的经验中吸取了教训，并寻找其他平台，而不是放弃。我遇到了 TryHackMe 平台，我发现那里的课程比我的速度更快。**我强烈推荐**[**试试 HackMe**](https://tryhackme.com/p/DPrice93) **对于任何想要获得实用知识和技能以成为渗透测试员的人。**我从[安全前学习路径](https://tryhackme.com/path-action/presecurity/join)开始，然后是[完整的初学者学习路径](https://tryhackme.com/path-action/beginner/join)，然后是 [CompTIA PenTest+ 学习路径](https://tryhackme.com/path-action/pentestplus/join)，最近完成了[初级渗透测试者学习路径](https://tryhackme.com/path-action/jrpenetrationtester/join)。我对去年花在这些课程上的时间零后悔。2022 年 2 月，在我的渗透测试周年纪念前一个月，我想向自己和其他人证明，我不断发展的渗透测试技能可以被认为是经过认证的。我选择 [CompTIA PenTest+ 认证](https://www.comptia.org/certifications/pentest)考试作为实现这一目标的工具。我最终在 2022 年 3 月的渗透周年纪念日及时通过了考试。你可以[了解我为这次考试做了什么学习](https://www.linkedin.com/posts/pricedevin_comptia-pentest-ce-certification-was-issued-activity-6903459516835594240-Z-Za)在我之前的一篇 LinkedIn 帖子中。
+
+**回顾过去的一年，我非常感谢作为一名渗透测试员给我带来的长期职业见解。**自从我进入该领域以来，每年我都会更好地了解我最终想在网络安全领域去哪里。例如，在过去的一年里，我发现我拥有一套战略和项目管理技能，我想在工作日更多地利用这些技能。在过去的一年里，我了解到我渴望成为网络安全领域的领导者，这样我就可以从更多的战略角度帮助组织管理安全风险，而不仅仅是渗透测试人员提供的技术方面。过去的一年让我有信心将自己视为未来的全职安全项目经理、项目经理，甚至是产品经理。仅在这一年，我就开始设定一个长期的职业目标，即成为首席信息安全官 (CISO)。暂且，我专注于成为最好的移动应用渗透测试者。未来看起来很光明。我期待看到它并了解我的网络安全之旅的下一章将如何展开。
+
+对于那些希望成为专业渗透测试人员的人，这是我给你的建议。
+
+1.  **进入网络安全领域**。如果您可以直接作为渗透测试者加入，那么您将获得更大的力量。但对于那些做不到的人，在到达最终目的地之前，您可能需要为绕道而行做好准备. 有关这方面的更多详细信息，请查看我之前的帖子 “[_我如何进入网络安全以及您如何也可以_](https://medium.com/@dprice_theblogger/how-i-got-into-cybersecurity-how-you-can-too-17728a539e77)”。
+2.  **能够验证您的渗透测试技能或向未来的招聘经理或招聘人员展示您对渗透测试的热情和主动性**。据我所见，大多数雇主希望看到您知道自己在做什么的经过认证的证据，或者至少是您在被录用之前正在努力学习的证据。对于那些刚开始作为初级渗透测试者的人来说，获得以下任何认证（[CEH](https://www.eccouncil.org/programs/certified-ethical-hacker-ceh/)、PenTest+、[eJPT](https://elearnsecurity.com/product/ejpt-certification/) 或 [Burp Suite Certified Practitioner](https://portswigger.net/web-security/certification)）绝对可以帮助您将您与其他候选人区分开来。对于那些希望获得 PenTest+ 认证的人，[请查看我的 LinkedIn 帖子](https://www.linkedin.com/posts/pricedevin_comptia-pentest-ce-certification-was-issued-activity-6903459516835594240-Z-Za?utm_source=linkedin_share&utm_medium=member_desktop_web)关于对我有用的学习计划。如果您不想走认证路线，请开始花时间熟悉渗透测试工具，如 nmap、Kali Linux、Burp Suite、Metasploit 等。如果您对移动渗透测试感兴趣，请尝试使用 Wireshark、Frida/ r2Frida、Jadx/Hopper，并考虑购买物理 root/jailed 测试设备。一些站点，例如 [Corellium](https://www.corellium.com/solutions/mobile-app-testing)，甚至可以让您虚拟测试各种移动设备。一旦你熟悉了渗透测试工具，就可以考虑加入像 [BugCrowd](https://bugcrowd.com/programs) 这样的公共漏洞赏金计划，或者像我一样参加 CTF 活动。
+3.  **开始与其他当前的渗透测试人员或其他有抱负、志同道合的人建立联系。**亲自与人会面共进午餐或喝咖啡永远不会过时。如果这是不可能的，继续领英并关注[＃渗透测试](https://www.linkedin.com/feed/hashtag/penetrationtesting/)渠道和[#offensivesecurity](https://www.linkedin.com/feed/hashtag/offensivesecurity/) 渠道. 这样做将允许您查看与渗透测试相关的角色的工作警报。如果有人对成为移动应用程序测试人员特别感兴趣，[为什么不申请 NowSecure](https://www.linkedin.com/company/nowsecure/jobs/) 或参加我们的[移动安全活动](https://www.nowsecure.com/events/)之一？
+
+如果您有兴趣了解有关渗透测试的更多信息，请查看以下播客片段：
+
+*   [_与 @TheCyber​​Mentor 和 @PhillipWylie 一起进行渗透测试_](https://www.youtube.com/watch?v=QecaJ95HF0o&t=4379s)
+*   [_如何在渗透测试中表现出色_](https://www.youtube.com/watch?v=cI9ISZt-CHs)
+*   [_进攻性网络安全教育和渗透测试入门 — Phillip Wylie_](https://www.youtube.com/watch?v=cno6mH3cOJc&t=319s)
+*   [_最大的渗透挑战以及如何克服它们_](https://www.youtube.com/watch?v=3-ieEqNu0K0&t=19s)
+*   [_BGH 呈现 “带黑客上班” 日 — Devin Price_](https://youtu.be/ExUI_lccVro)
+
+**感谢您阅读我的博文。如果它对您有任何帮助，我所要求的回报是您将其分享或转发给您认为可能从中获得价值的任何其他人。如果您需要进一步的帮助或想询问本文未涵盖的其他问题，请随时通过我的** [**LinkedIn 个人资料**](https://www.linkedin.com/in/pricedevin/)**与我联系。**
+
+真挚地，
+
+_DPrice_TheBlogger_
+
+1.  查普尔、迈克和大卫 · 塞德尔。_CompTIA PenTest+ 学习指南：考试 PT0–002_。第 2 版，John Wiley & Sons, Inc.，2022 [Bibliography.com]
+2.  OWASP 基金会。” _带有最新 OWASP MASVS 的移动 AppSec 内部人员指南 — Brendan Hann_ ”。YouTube，2022 年 1 月 6 日[。https://www.youtube.com/watch?v= TcYtpUIIMYw](https://www.youtube.com/watch?v=TcYtpUIIMYw)
+3.  华尔兹，尼古拉斯。” _应用程序安全差异 — Web 和移动_。”Conviso 应用程序安全，2020 年 8 月 21 日，[https: //blog.convisoappsec.com/en/application-security-differences-web-and-mobile/#:~:text=Possibly% 20%20 最大 %20 差异 %20 之间，是 %20 存储 %20 内部 %20%20 设备](https://blog.convisoappsec.com/en/application-security-differences-web-and-mobile/#:~:text=Possibly%20the%20biggest%20difference%20between,is%20stored%20inside%20the%20device)。
