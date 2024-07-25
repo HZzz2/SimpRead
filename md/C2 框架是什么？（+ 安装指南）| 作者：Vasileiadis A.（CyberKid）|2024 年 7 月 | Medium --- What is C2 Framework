@@ -1,0 +1,380 @@
+> 本文由 [简悦 SimpRead](http://ksria.com/simpread/) 转码， 原文地址 [medium.com](https://medium.com/@redfanatic7/what-is-c2-framework-installation-guide-0710a431a801)
+
+> In this guide, you’ll learn what a C2 server and chassis are, why you might want to use one, and the ......
+
+[
+
+![](https://miro.medium.com/v2/resize:fill:88:88/1*IrNJAPXobeCEabHG9eFHlQ.jpeg)
+
+](https://medium.com/@redfanatic7?source=post_page-----0710a431a801--------------------------------)
+
+In this guide, you’ll learn what a C2 server and chassis are, why you might want to use one, and the key benefits they can provide to you and your team.  
+在本指南中，您将了解 C2 服务器和机箱是什么，为什么您可能想要使用它们，以及它们可以为您和您的团队提供的关键好处。
+
+You’ll discover some of the most popular C2 frameworks available today and get hands-on experience using the popular Havoc open source C2 framework.  
+您将会发现一些当今最受欢迎的 C2 框架，并通过使用流行的 Havoc 开源 C2 框架来获得实践经验。
+
+![](https://miro.medium.com/v2/resize:fit:1094/0*QNSR8T6Mc_tBrd8U.png)
+
+Table of Contents 目录
+
+*   [What is the C2 frame?  
+    C2 帧是什么？](https://en.iguru.gr/einai-c2-framework-odigos-egkatastasis/#%CE%A4%CE%B9_%CE%B5%CE%AF%CE%BD%CE%B1%CE%B9_%CF%84%CE%BF_%CF%80%CE%BB%CE%B1%CE%AF%CF%83%CE%B9%CE%BF_C2)
+*   [What is the purpose of a C2 frame?  
+    C2 框架的目的是什么？](https://en.iguru.gr/einai-c2-framework-odigos-egkatastasis/#%CE%A0%CE%BF%CE%B9%CE%BF%CF%82_%CE%B5%CE%AF%CE%BD%CE%B1%CE%B9_%CE%BF_%CF%83%CE%BA%CE%BF%CF%80%CF%8C%CF%82_%CE%B5%CE%BD%CF%8C%CF%82_%CF%80%CE%BB%CE%B1%CE%B9%CF%83%CE%AF%CE%BF%CF%85_C2)
+*   [What are the benefits of a C2 frame?  
+    C2 框架有哪些好处？](https://en.iguru.gr/einai-c2-framework-odigos-egkatastasis/#%CE%A0%CE%BF%CE%B9%CE%B1_%CE%B5%CE%AF%CE%BD%CE%B1%CE%B9_%CF%84%CE%B1_%CE%BF%CF%86%CE%AD%CE%BB%CE%B7_%CE%B5%CE%BD%CF%8C%CF%82_%CF%80%CE%BB%CE%B1%CE%B9%CF%83%CE%AF%CE%BF%CF%85_C2)
+*   [What are the most popular C2 frameworks?  
+    什么是最受欢迎的 C2 框架？](https://en.iguru.gr/einai-c2-framework-odigos-egkatastasis/#%CE%A0%CE%BF%CE%B9%CE%B1_%CE%B5%CE%AF%CE%BD%CE%B1%CE%B9_%CF%84%CE%B1_%CF%80%CE%B9%CE%BF_%CE%B4%CE%B7%CE%BC%CE%BF%CF%86%CE%B9%CE%BB%CE%AE_%CF%80%CE%BB%CE%B1%CE%AF%CF%83%CE%B9%CE%B1_C2)
+*   [Setting up a C2 chassis with Havoc  
+    设置使用 Havoc 的 C2 底盘](https://en.iguru.gr/einai-c2-framework-odigos-egkatastasis/#%CE%A1%CF%8D%CE%B8%CE%BC%CE%B9%CF%83%CE%B7_%CE%B5%CE%BD%CF%8C%CF%82_%CF%80%CE%BB%CE%B1%CE%B9%CF%83%CE%AF%CE%BF%CF%85_C2_%CE%BC%CE%B5_%CF%84%CE%BF_Havoc)
+*   [Havoc Lab installation Havoc 实验室安装](https://en.iguru.gr/einai-c2-framework-odigos-egkatastasis/#%CE%95%CE%B3%CE%BA%CE%B1%CF%84%CE%AC%CF%83%CF%84%CE%B1%CF%83%CE%B7_Havoc_Lab)
+*   [Using the C2 Havoc frame  
+    使用 C2 Havoc 框架](https://en.iguru.gr/einai-c2-framework-odigos-egkatastasis/#%CE%A7%CF%81%CE%AE%CF%83%CE%B7_%CF%84%CE%BF%CF%85_%CF%80%CE%BB%CE%B1%CE%B9%CF%83%CE%AF%CE%BF%CF%85_C2_Havoc)
+*   [Run Havoc C2 commands  
+    运行 Havoc C2 命令](https://en.iguru.gr/einai-c2-framework-odigos-egkatastasis/#%CE%95%CE%BA%CF%84%CE%AD%CE%BB%CE%B5%CF%83%CE%B7_%CE%B5%CE%BD%CF%84%CE%BF%CE%BB%CF%8E%CE%BD_Havoc_C2)
+*   [Conclusion 结论](https://en.iguru.gr/einai-c2-framework-odigos-egkatastasis/#%CE%A3%CF%85%CE%BC%CF%80%CE%AD%CF%81%CE%B1%CF%83%CE%BC%CE%B1)
+
+If you’ve ever done pentests before, you’ll know about malware and shells.  
+如果你以前做过渗透测试，你就会知道恶意软件和外壳。
+
+You run a piece of malware on a target machine, which creates a terminal session or shell that binds back to you (reverse shell) or to you (bind shell). You can then remotely control the target machine.  
+您在目标机器上运行了一段恶意软件，它创建了一个终端会话或 shell，与您进行反向绑定（反向 shell）或绑定到您（绑定 shell）。然后，您可以远程控制目标机器。
+
+Every hacker wants to get a shell on a target system to perform post-exploitation tasks like harvesting credentials, leaking data or moving to new targets using techniques like kerberoasting.  
+每个黑客都希望在目标系统上获得一个 shell，以执行后期剥削任务，如获取凭证、泄露数据或使用 kerberoasting 等技术转移到新目标。
+
+A C2 frame takes the concept of shells to the next level. They provide a centralized platform to control hundreds of compromised systems on a target network and are used in almost every real cyber attack.  
+一个 C2 框架将壳的概念提升到了一个新的水平。它们提供了一个集中的平台，用于控制目标网络上数百个受损系统，并几乎在每次真实的网络攻击中被使用。
+
+In addition, the C2 framework has advanced automation capabilities and effortlessly integrates various leading tools. This helps with lateral movement, post-exploitation enumeration, privilege escalation, persistence, and more.  
+此外，C2 框架具有先进的自动化能力，并轻松集成各种领先的工具。这有助于横向移动、攻击后枚举、权限提升、持久性等方面。
+
+Typically, C2 frameworks have three parts: a C2 server, a C2 client, and a C2 agent.  
+通常，C2 框架包括三个部分：C2 服务器，C2 客户端和 C2 代理。
+
+*   **C2 server**: The center for managing compromised systems, C2 communication and data.  
+    C2 服务器：管理受损系统、C2 通信和数据的中心。
+*   **C2 Client**: Software installed on a C2 operator’s machine that allows him to connect to the C2 server and interact with compromised machines.  
+    C2 客户端：安装在 C2 操作员机器上的软件，允许他连接到 C2 服务器并与被感染的机器进行交互。
+*   **C2 Agent**: Malware installed on an infected target machine, which connects to a C2 server and allows an operator to control the infected machine remotely. This is also known as a C2 implant or bot, depending on which C2 frame you are using.  
+    C2 代理：安装在感染目标机器上的恶意软件，连接到 C2 服务器，并允许操作员远程控制被感染的机器。这也被称为 C2 植入物或 bot，取决于您使用的 C2 框架。
+
+![](https://miro.medium.com/v2/resize:fit:714/0*-eirdxZo6ZVOcbfl.png)
+
+You run the C2 agent on a target machine and the agent connects to the public C2 server.  
+您在目标机器上运行 C2 代理，代理连接到公共 C2 服务器。
+
+An administrator connects to the C2 server to interact with the compromised machine through the server.  
+管理员通过 C2 服务器连接以通过服务器与被入侵机器进行交互。
+
+The administrator can interact with the C2 server and compromised systems using a command line or a graphical user interface (GUI). Many advanced C2 frameworks include both so the administrator can visualize the systems they are attacking.  
+管理员可以使用命令行或图形用户界面（GUI）与 C2 服务器和受损系统进行交互。许多先进的 C2 框架都包含这两种方式，以便管理员可以可视化他们正在攻击的系统。
+
+![](https://miro.medium.com/v2/resize:fit:781/0*4DoJ_PXf1QBR7wzH.png)
+
+But why do you need a C2 frame? Why not just use a reverse shell? Let’s see more.  
+但为什么需要一个 C2 框架？为什么不只使用一个反向 shell？让我们看看更多。
+
+C2 frameworks are platforms designed to give you the ability to perform post-exploitation tasks, maintain access to systems, and collaborate with others to achieve your goals.  
+C2 框架是旨在让您能够执行后渗透任务、维持对系统的访问并与他人合作以实现您的目标的平台。
+
+The C2 infrastructure is designed to use a client-server model, where multiple C2 clients can connect to a central C2 server through an intuitive user interface, from which they can attack systems.  
+C2 基础设施采用客户端 - 服务器模式设计，多个 C2 客户端可以通过直观的用户界面连接到中央 C2 服务器，从中它们可以攻击系统。
+
+This allows multiple administrators to work simultaneously, provides a central point for data flow, and requires only one public IP/domain, making the creation of new C2 infrastructure easier.  
+这允许多个管理员同时工作，提供数据流的中心点，并且只需要一个公共 IP / 域名，使得新 C2 基础设施的创建更加容易。
+
+The architectural design of C2 frames also makes them significantly more stable than reverse or binding shells. The public C2 server means you don’t need your own system in a DMZ to receive recalls — that’s the server’s job.  
+C2 框架的建筑设计使其比反向或绑定外壳更加稳定。公共 C2 服务器意味着您不需要在 DMZ 中拥有自己的系统来接收召回请求 - 这是服务器的工作。
+
+This, combined with a well-designed C2 agent, means there is less chance of being interrupted or disconnected when hacking. You could shut down your client machine and reconnect to the server later without losing any shells.  
+这与一个设计良好的 C2 代理结合在一起，意味着在黑客过程中更少被中断或断开的机会。你可以关闭你的客户端机器，稍后重新连接服务器，而不会丢失任何 shell。
+
+If you’re still not convinced, another powerful feature of the C2 frameworks is their support for external post-exploit hacking tools and hiding the execution of those tools in memory: tools like Mimikatz, BloodHound, and Nmap.  
+如果您仍然不确定，C2 框架的另一个强大功能是支持外部后渗透黑客工具，并将这些工具的执行隐藏在内存中：例如 Mimikatz、BloodHound 和 Nmap 等工具。
+
+This feature means you can customize a framework to your needs using tools you’re comfortable with. You can even use different C2 agents or frameworks together. For example, connecting a Metasploit agent to a Cobalt Strike C2 server.  
+该功能意味着您可以使用您熟悉的工具定制一个框架以满足您的需求。您甚至可以将不同的 C2 代理或框架一起使用。例如，将 Metasploit 代理连接到 Cobalt Strike C2 服务器。
+
+These qualities make C2 frames ideal for red teaming or purple teaming exercises, where security professionals must simulate real attacks to test their defensive capabilities.  
+这些特点使得 C2 框架非常适合红队或紫队演习，安全专家需要模拟真实攻击来测试其防御能力。
+
+Now you know what frameworks are and why attackers use them, so let’s explore some of the key advantages of these platforms.  
+现在你知道什么是框架，以及攻击者为什么使用它们，让我们来探讨一些这些平台的关键优势。
+
+*   **Stealth**: They can incorporate various evasion techniques, including using SSL certificates, to encrypt data and hide malicious activities, masquerading as legitimate network traffic, and hiding an attacker’s IP addresses through C2 redirectors.  
+    隐蔽性：它们可以采用各种规避技术，包括使用 SSL 证书对数据进行加密，隐藏恶意活动，假装成合法的网络流量，并通过 C2 重定向隐藏攻击者的 IP 地址。
+*   **Flexibility**: Several frameworks allow you to customize C2 agents, change C2 server responses and configuration settings, and implement new attack techniques. This allows you to tailor your C2 infrastructure to specific target systems or targets and avoid defensive measures.  
+    灵活性：几个框架允许您定制 C2 代理，更改 C2 服务器响应和配置设置，并实施新的攻击技术。这使您能够根据特定目标系统或目标量身定制您的 C2 基础设施，并避免防御措施。
+*   **scalability**: C2 frames are designed for scaling. Multiple operators (clients) can interact with a single C2 server controlling hundreds of exposed machines — leveraging cloud technology to deploy your infrastructure on demand.  
+    可扩展性：C2 框架设计用于扩展。多个操作者（客户端）可以与单个 C2 服务器交互，控制数百台暴露的机器 — 利用云技术按需部署您的基础设施。
+*   **Centralized Management**: Allow you to manage and control compromised systems from a single, centralized interface. This allows operators to coordinate and orchestrate their activities, manage compromised systems, and execute commands on multiple hosts simultaneously.  
+    中央化管理：允许您从单一的中央化界面管理和控制受损系统。这使操作员能够协调和编排他们的活动，管理受损系统，并在多台主机上同时执行命令。
+*   **P**: Many C2 frameworks have built-in persistence mechanisms that you can deploy on compromised systems to maintain access even after reboots or the implementation of strong security features and measures.  
+    许多 C2 框架都内置了持久性机制，您可以部署在受损系统上，以便在重新启动或实施强大的安全特性和措施后仍保持访问权限。
+*   **Data Exfiltration**: C2 frameworks allow you to easily hide massive amounts of sensitive data from compromised systems, hide it through encryption or obfuscation, and make it available to anyone on your team by hosting it on a central C2 server.  
+    数据泄露：C2 框架允许您轻松地将大量敏感数据从受损系统隐藏起来，通过加密或混淆进行隐藏，并通过将其托管在中央 C2 服务器上使其对团队中的任何人都可用。
+*   **Reliability**: C2 frameworks are intended to provide a reliable mechanism for interacting with exposed computers. This includes having a trusted C2 agent connected to the C2 server, the ability to create backup servers or split the stages of the attack across different C2 servers, and the ability to use C2 rerouters to redirect traffic in the event of IP or domain name of server C2.  
+    可靠性：C2 框架旨在提供与公开计算机进行交互的可靠机制。这包括将可信的 C2 代理连接到 C2 服务器，能够创建备份服务器或将攻击阶段分散在不同的 C2 服务器上，以及能够使用 C2 重定向器在 C2 服务器的 IP 或域名发生变化时重定向流量。
+
+So now you want to get your hands dirty and start using a C2 frame. Great! But which one should you use? Let’s look at some of the most popular C2 frames to help you decide.  
+所以现在你想要动手并开始使用 C2 框架。很好！但是你应该使用哪一个呢？让我们来看一下一些最受欢迎的 C2 框架，以帮助你做出决定。
+
+Cobalt Strike 钴冲击
+-----------------
+
+Cobalt Strike is a commercial adversary simulation platform and red team operations widely used in the security industry by penetration testers. This is one of the industry’s leading tools for C2 frameworks, but its benefits come at a high price.  
+Cobalt Strike 是一个商业对手仿真平台和红队操作工具，被渗透测试人员广泛使用于安全行业。这是行业领先的 C2 框架之一，但其优势是以高昂的价格为代价的。
+
+powershell empire
+-----------------
+
+PowerShell Empire is an open source meta-exploitation framework that makes extensive use of the PowerShell scripting language, which is typically found on Windows systems.  
+PowerShell Empire 是一个开源的元渗透框架，广泛使用 PowerShell 脚本语言，通常在 Windows 系统上找到。
+
+Slither 游动
+----------
+
+Slither is an open source, cross-platform adversary and red team emulation framework designed for security testing on Windows, MacOS, and Linux machines.  
+Slither 是一个开源的、跨平台的对手和红队仿真框架，旨在用于 Windows、MacOS 和 Linux 机器上的安全测试。
+
+Havoc 混乱
+--------
+
+Havoc is free, open source and easy to set up. It provides a client interface for interacting with the C2 server in real-time via API calls, similar in look and feel to Cobalt Strike.  
+Havoc 是自由、开源且易于设置的工具。它提供了一个客户端界面，通过 API 调用实时与 C2 服务器交互，外观和感觉类似于 Cobalt Strike。
+
+Brute Ratel C4 蛮榴獾 C4
+---------------------
+
+Brute Ratel C4 is a commercial red team and adversary simulation platform that can automate the execution of adversary tactics, techniques and procedures (TTPs), map attacks to the MITER ATT&CK matrix for reporting, and support multiple channels of command and control.  
+Brute Ratel C4 是一款商业红队和对手模拟平台，可以自动执行对手战术、技术和程序（TTPs），将攻击映射到 MITER ATT&CK 矩阵以进行报告，并支持多个命令和控制通道。
+
+This demo will show you how to set up and use the Havoc C2 frame. Havoc is a great choice for those starting out with C2 frames. It is open source, easy to configure and provides an intuitive GUI for interacting with your C2 agents.  
+该演示将向您展示如何设置和使用 Havoc C2 框架。Havoc 是初学者使用 C2 框架的绝佳选择。它是开源的，易于配置，并为与您的 C2 代理进行交互提供直观的图形用户界面。
+
+Once you have installed a Kali Linux and Windows 10 virtual machine, you can install Havoc.  
+一旦您安装了 Kali Linux 和 Windows 10 虚拟机，您就可以安装 Havoc。
+
+Install Havoc 安装混乱
+------------------
+
+To install Havoc, clone the GitHub repository with the command git clone [https://github.com/HavocFramework/Havoc.git.](https://github.com/HavocFramework/Havoc.git.)  
+要安装 Havoc，请使用命令 git clone https://github.com/HavocFramework/Havoc.git 克隆 GitHub 存储库。
+
+![](https://miro.medium.com/v2/resize:fit:781/0*Sbhz_mIrz0JNXNcJ.png)
+
+Next, move to this cloned directory and install the required dependencies by running the following two commands:  
+接下来，转到这个克隆的目录，并通过运行以下两个命令来安装所需的依赖项：
+
+```
+cd Havoc
+```
+
+```
+sudo apt install -y git build-essential apt-utils cmake libfontconfig1 libglu1-mesa-dev libgtest-dev libspdlog-dev libboost-all-dev libncurses5-dev libgdbm-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev libbz2-dev dev mesa-common-dev qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools libqt5websockets5 libqt5websockets5-dev qtdeclarative5-dev golang-go qtbase5-dev libqt5websockets5-dev python3-dev libboost-all-dev mingw-w64 nasm
+```
+
+![](https://miro.medium.com/v2/resize:fit:781/0*vZ1I62YFa2JXzu8t.png)
+
+Now build the Havoc C2 server by running the following commands:  
+现在通过运行以下命令来构建 Havoc C2 服务器：
+
+```
+cd teamserver
+```
+
+```
+go mod download golang.org/x/sys
+```
+
+```
+go mod download github.com/ugorji/go
+```
+
+```
+Cd ..
+```
+
+```
+make ts-build
+```
+
+![](https://miro.medium.com/v2/resize:fit:781/0*ac2MZ3yoT55EUlTp.png)
+
+Then build the Havoc C2 client with the make client-build command.  
+然后使用 make client-build 命令构建 Havoc C2 客户端。
+
+![](https://miro.medium.com/v2/resize:fit:781/0*q9FQXGhN_TYJIo1m.png)
+
+Then edit the ./profiles/havoc.yaotl file to match the following configuration.  
+然后编辑./profiles/havoc.yaotl 文件，使其与以下配置匹配。
+
+![](https://miro.medium.com/v2/resize:fit:781/0*DIrBDFsm-vZ8c3uQ.png)
+
+You can change the user and Password variables to whatever you want. It is important that the Teamserver is running locally on the same Kali Linux machine that you are running the client on. To run the server locally, you need to change the Host variable to 127.0.0.1  
+你可以将用户和密码变量改成你想要的任何值。重要的是 Teamserver 在你运行客户端的 Kali Linux 机器上本地运行。要在本地运行服务器，你需要将主机变量更改为 127.0.0.1
+
+Start the Havoc C2 server using the default profile by running the command ./havoc server –profile ./profiles/havoc.yaotl..  
+使用命令./havoc server –profile ./profiles/havoc.yaotl 启动 Havoc C2 服务器，使用默认配置文件。
+
+![](https://miro.medium.com/v2/resize:fit:781/0*peNPrtc4KIuMPBpn.png)
+
+Connect to the C2 server by launching the Havoc C2 client with the command ./havoc client.  
+通过使用命令./havoc client 启动 Havoc C2 客户端来连接到 C2 服务器。
+
+Use the credentials you created in the ./profiles/havoc.yaotl file to connect to the C2 server. Click the New Profile button, enter your local IP address, and then add the username and password you set.  
+使用您在./profiles/havoc.yaotl 文件中创建的凭据连接到 C2 服务器。 点击 “新建配置文件” 按钮，输入您的本地 IP 地址，然后添加您设置的用户名和密码。
+
+Finally, press Connect to connect to the Havoc server.  
+最后，按下 “连接” 以连接到 Havoc 服务器。
+
+![](https://miro.medium.com/v2/resize:fit:781/0*NZqYuNGt-aJV5g7X.png)
+
+You will be presented with Havoc’s default dashboard.  
+您将看到 Havoc 的默认仪表板。
+
+![](https://miro.medium.com/v2/resize:fit:781/0*VpnnnDvTJDXkaS_Q.png)
+
+With the C2 server and client running, you can proceed to install the agents on exposed systems.  
+随着 C2 服务器和客户端的运行，您可以继续在暴露的系统上安装代理。
+
+Now that you have everything installed, let’s start using our first C2 frame.  
+现在您已经安装了所有内容，让我们开始使用我们的第一个 C2 框架。
+
+**Developing an Agent with Havoc  
+开发一个具有混乱特性的代理程序**
+
+There are three steps to perform when deploying a C2 agent on a compromised machine using Havoc.  
+在使用 Havoc 在受损机器上部署 C2 代理时，有三个步骤需要执行。
+
+**Step 1:** Create a Listener  
+步骤 1：创建一个监听器
+
+First, you need to create a listener on the Havoc interface to listen for incoming connections from Havoc agents. To do this, select the Listeners option from the View drop-down menu.  
+首先，您需要在 Havoc 接口上创建一个监听器，以便监听来自 Havoc 代理的传入连接。为此，请从 "查看" 下拉菜单中选择 "监听器" 选项。
+
+![](https://miro.medium.com/v2/resize:fit:781/0*Z-qdhI9NQOivxQo9.png)
+
+This will bring up the Listeners tab. Click the Add button to display the Create Listener pop-up wizard.  
+这将会打开 “监听器” 选项卡。点击 “添加” 按钮以显示 “创建监听器” 弹出式向导。
+
+![](https://miro.medium.com/v2/resize:fit:781/0*wRfgZjv4-YC1S0vb.png)
+
+Fill in the listener name, leave the payload as Https, make sure the host is set to the IP address of the Kali Linux machine, and then click Save.  
+填写监听器名称，将负载设置为 Https，确保主机设置为 Kali Linux 机器的 IP 地址，然后点击保存。
+
+![](https://miro.medium.com/v2/resize:fit:588/0*LLUIZ1DJ4i51kiOK.png)
+
+Clicking Save will create your listener on the Havoc Teamserver.  
+点击保存将在 Havoc Teamserver 上创建您的监听器。
+
+![](https://miro.medium.com/v2/resize:fit:781/0*3nKFhOeJz9cDY-3X.png)
+
+You can now create a payload that runs the Havoc C2 agent and connects to this listener.  
+您现在可以创建一个负载，运行 Havoc C2 代理并连接到这个监听器。
+
+**Step 2:** Create a payload  
+第二步：创建有效载荷
+
+To create a payload in Havoc, select the payload option from the Attack dropdown.  
+创建 Havoc 中的有效负载，请从攻击下拉菜单中选择有效负载选项。
+
+![](https://miro.medium.com/v2/resize:fit:781/0*46n59VA9hnTWh6hD.png)
+
+This will bring up the Payload wizard, which you can use to customize your options.  
+这将会弹出负载向导，您可以使用它来自定义您的选项。
+
+Choose the listener you want the payload to bind to, the architecture you’re targeting, and the format you want the payload to be in .  
+选择要将有效载荷绑定到的监听器、您要针对的体系结构以及您希望有效载荷采用的格式。
+
+For modern Windows operating systems, this will be x64 and Windows Exe. You can leave the rest of the configuration options at their default values ​​and select Generate to build your payload.  
+对于现代 Windows 操作系统，这将是 x64 和 Windows Exe。您可以将其余配置选项保留为默认值，并选择生成以构建您的有效负载。
+
+![](https://miro.medium.com/v2/resize:fit:636/0*wQ_STR_wUG0IMjX2.png)
+
+Once created, Havoc will ask you where you want to save your payload. Remember this position. You will need to use your payload later.  
+创建完成后，Havoc 将询问您想要保存负载的位置。请记住这个位置。您之后需要使用负载。
+
+![](https://miro.medium.com/v2/resize:fit:600/0*CwQSajd_5YVNdqh1.png)
+
+**Step 3:** Transporting and executing the Payload  
+步骤 3：传输和执行有效载荷
+
+The next step is to transfer Payload Havoc to your target computer.  
+下一步是将 Payload Havoc 传输到您的目标计算机。
+
+First, navigate to the directory where you saved the Havoc Payload, then create a Python HTTP server with the python3 -m http.server command.  
+首先，导航到您保存 Havoc Payload 的目录，然后使用 python3 -m http.server 命令创建一个 PythonHTTP 服务器。
+
+![](https://miro.medium.com/v2/resize:fit:781/0*Z22ixreh6uYE8ZWt.png)
+
+Now, on the target Windows 10 machine, open a web browser and navigate to the IP address of the Kali Linux machine. Make sure you’ve turned off protections in Windows Security, such as Virus & Threat Protection and Application and Browser Control. This will ensure that the Payload runs and is not blocked by Windows Defender.  
+现在，在目标 Windows 10 计算机上，打开一个 Web 浏览器并导航到 Kali Linux 计算机的 IP 地址。确保您已关闭 Windows 安全性保护，例如病毒和威胁防护以及应用程序和浏览器控制。这将确保有效载荷运行并且不会被 Windows Defender 阻止。
+
+![](https://miro.medium.com/v2/resize:fit:781/0*k-pzwNOcK_Gn4f87.png)
+
+Select the executable file. Once downloaded, click the Open File link and select the Run option.  
+选择可执行文件。下载后，点击 “打开文件” 链接，选择 “运行” 选项。
+
+![](https://miro.medium.com/v2/resize:fit:781/0*8wCXZnjLSEAE2Pll.png)
+
+Finally, go back to the Kali Linux machine and confirm that the payload has run, that the C2 agent has deployed, and that you have a connection from your target machine to the Havoc C2 server.  
+最后，返回 Kali Linux 机器，确认有效载荷已运行，C2 代理已部署，并且你的目标机器与 Havoc C2 服务器建立了连接。
+
+![](https://miro.medium.com/v2/resize:fit:781/0*uBdVLYHVDrCMfUt1.png)
+
+Once you run a C2 agent on the target machine, you can start executing commands and interacting with the exposed computer.  
+一旦在目标机器上运行 C2 代理，您可以开始执行命令并与暴露的计算机进行交互。
+
+To run remote commands on a compromised machine, you must first connect to the C2 agent through which you want to run commands. To do this, right-click the agent and select Interact from the pop-up menu.  
+在受到攻击的计算机上运行远程命令，您必须首先通过您想要运行命令的 C2 代理连接到代理。为此，请右键单击代理并从弹出菜单中选择 “交互”。
+
+![](https://miro.medium.com/v2/resize:fit:781/0*D8Nk-Lz68PXChi5D.png)
+
+This will bring up the C2 agent tab at the bottom of the Havoc GUI. You can issue commands in the lower command line and see the results displayed in the output tab.  
+这将在 Havoc GUI 底部显示 C2 代理选项卡。您可以在下方命令行中发出命令，并在输出选项卡中查看结果。
+
+![](https://miro.medium.com/v2/resize:fit:781/0*az5bWbe6zqegA0ix.png)
+
+To find out what commands you can run, run the help command.  
+要查找可以运行哪些命令，请运行帮助命令。
+
+![](https://miro.medium.com/v2/resize:fit:781/0*yQWqKwA5Tc03wE2f.png)
+
+Scrolling through the help menu will reveal many commands you can run. The most popular include:  
+浏览帮助菜单将显示许多可运行的命令。其中最受欢迎的包括：
+
+*   `whoami` to get information about the current user and their privileges.  
+    `whoami` 获取有关当前用户及其权限的信息。
+*   `powershell` to run Windows PowerShell commands.  
+    `powershell` 运行 Windows PowerShell 命令。
+*   `upload`and`download` to put files on the machine or remove them.  
+    `upload` 和 `download` 把文件放到机器上或将其移除。
+*   `shell` to enter a command shell.  
+    `shell` 进入命令行界面。
+*   `token` for manipulating and impersonating Windows tokens.  
+    对于操纵和模仿 Windows 令牌。
+*   `screenshot` to take a screenshot of the current user's desktop.  
+    `screenshot` 截取当前用户桌面的屏幕截图。
+*   And more 和更多
+
+You can even create a graphical map of infected hosts and their connections back to the Havoc C2 server by selecting View > Session View > Graph.  
+甚至可以通过选择查看 > 会话视图 > 图形来创建一个受感染主机及其连接回 Havoc C2 服务器的图形地图。
+
+![](https://miro.medium.com/v2/resize:fit:781/0*zwe5O7gL1CULQ4n5.png)
+
+This is very useful when you have penetrated deep into an organization’s network and need to see the path that traffic takes on its way out.  
+当您深入到组织的网络中，并且需要查看流量传输的路径时，这将非常有用。
+
+![](https://miro.medium.com/v2/resize:fit:781/0*boOPxWprSi12pwzG.png)
+
+C2 frameworks are awesome tools. They allow you to evade detection, remain silent, and take penetration testing to new levels with centralized management and powerful mechanisms for interacting with compromised systems.  
+C2 框架是非常棒的工具。它们可以让您规避检测，保持沉默，并通过集中管理和与受损系统交互的强大机制，将渗透测试提升到新的水平。
+
+Many C2s even include advanced customization options that allow you to tailor your C2 infrastructure to a specific goal or objective.  
+许多 C2 甚至包括高级定制选项，让您能够将 C2 基础架构定制到特定目标或目的。
+
+This article discusses the purpose of C2 frameworks, the benefits they offer, and some popular commercial and open source frameworks you can use. You even got some hands-on experience using the Havoc C2 frame!  
+本文讨论了 C2 框架的目的、其提供的好处以及一些您可以使用的流行商业和开源框架。您甚至还可以通过使用 Havoc C2 框架获得一些实际操作经验！
